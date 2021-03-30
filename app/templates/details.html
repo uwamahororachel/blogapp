@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content %}
+<div class="container">
+    <div>
+        <div class="panel panel-default">
+            <div class="panel-heading">Blog</div>
+            <div class="panel-body">
+              
+                <p>{{ blog.blog}}</p>
+              
+                <p>{{ blog.category}}</p>
+                <p><strong>by: {{ blog.user.username }}</strong></p>
+            </div>
+            {% if blog.user == current_user %}
+                    <div>
+                        <a class="btn btn-primary btn-sm sm-1"href="{{url_for('main.update',blog_id = blog.id)}}">Update</a>
+                        <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#deleteModal">Delete</button>
+                    </div>
+                    {% endif %}
+        </div>
+        
