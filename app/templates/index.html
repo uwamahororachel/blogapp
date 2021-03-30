@@ -20,5 +20,23 @@
         </div>
     </div>
 </div>
+<!-- tag display Blog elements -->
+        <div>
+                <h1>Blogs </h1>
+                {% for blog in blogs %}
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">{{ blog.blog }}</div>
+                        <div class="panel-body">
+                            <p style="line-height:1,2em;font-family: 'Times New Roman', Times, serif;font-size:18px;">{{ blog.category| truncate(180) }}</p>
+                        <footer><p style="margin-left:400px;"><strong>{{ blog.user.username }}</strong></p></footer>
+                            <a href="{{url_for('main.new_comment',blog_id=blog.id)}}" class="btn btn-success">comment</a> 
+                            
+                            <!-- <a href="{{url_for('main.comment',blog_id=blog.id)}}" class="btn btn-primary">comment</a>  -->
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
 
 {% endblock %}
