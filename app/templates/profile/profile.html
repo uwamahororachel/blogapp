@@ -58,5 +58,12 @@
 {{blog.category|truncate (180)}}
 
 
+<a class="btn btn-primary btn-sm sm-1"href="{{url_for('main.update',blog_id = blog.id)}}">Update</a>
+<a href="{{url_for('main.comment',blog_id=blog.id)}}" class="btn btn-primary">comment</a> 
 
+{%endfor%}
+<!--  -->
+</div>
+{% endblock %}
+    
  
